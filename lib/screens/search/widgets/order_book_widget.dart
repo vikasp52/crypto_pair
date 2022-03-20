@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 
-class OrderBook extends StatelessWidget {
-  const OrderBook({Key? key}) : super(key: key);
+class OrderBookWidget extends StatelessWidget {
+  const OrderBookWidget({
+    Key? key,
+    required this.orderBook,
+  }) : super(key: key);
+
+  final List<List<String>> orderBook;
 
   @override
   Widget build(BuildContext context) {
@@ -19,240 +24,43 @@ class OrderBook extends StatelessWidget {
                 style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
           ),
           Card(
+              elevation: 10,
               child: DataTable(
-            columnSpacing: 40,
-            columns: [
-              orderBookTitle(
-                "BID PRICE",
-              ),
-              orderBookTitle(
-                "QTY",
-              ),
-              orderBookTitle(
-                "QTY",
-              ),
-              orderBookTitle(
-                "ASK PRICE",
-              ),
-            ],
-            rows: const [
-              DataRow(cells: [
-                DataCell(
-                  Text(
-                    '1232323.00',
-                    style: const TextStyle(
-                      fontWeight: FontWeight.w600,
-                      color: Colors.black,
-                      fontSize: 10,
-                    ),
-                  ),
-                ),
-                DataCell(
-                  Text(
-                    '1232323.00',
-                    style: const TextStyle(
-                      fontWeight: FontWeight.w600,
-                      color: Colors.black,
-                      fontSize: 10,
-                    ),
-                  ),
-                ),
-                DataCell(
-                  Text(
-                    '1232323.00',
-                    style: const TextStyle(
-                      fontWeight: FontWeight.w600,
-                      color: Colors.black,
-                      fontSize: 10,
-                    ),
-                  ),
-                ),
-                DataCell(
-                  Text(
-                    '1232323.00',
-                    style: const TextStyle(
-                      fontWeight: FontWeight.w600,
-                      color: Colors.black,
-                      fontSize: 10,
-                    ),
-                  ),
-                ),
-              ]),
-              DataRow(cells: [
-                DataCell(
-                  Text(
-                    '1232323.00',
-                    style: const TextStyle(
-                      fontWeight: FontWeight.w600,
-                      color: Colors.black,
-                      fontSize: 10,
-                    ),
-                  ),
-                ),
-                DataCell(
-                  Text(
-                    '1232323.00',
-                    style: const TextStyle(
-                      fontWeight: FontWeight.w600,
-                      color: Colors.black,
-                      fontSize: 10,
-                    ),
-                  ),
-                ),
-                DataCell(
-                  Text(
-                    '1232323.00',
-                    style: const TextStyle(
-                      fontWeight: FontWeight.w600,
-                      color: Colors.black,
-                      fontSize: 10,
-                    ),
-                  ),
-                ),
-                DataCell(
-                  Text(
-                    '1232323.00',
-                    style: const TextStyle(
-                      fontWeight: FontWeight.w600,
-                      color: Colors.black,
-                      fontSize: 10,
-                    ),
-                  ),
-                ),
-              ]),
-              DataRow(cells: [
-                DataCell(
-                  Text(
-                    '1232323.00',
-                    style: const TextStyle(
-                      fontWeight: FontWeight.w600,
-                      color: Colors.black,
-                      fontSize: 10,
-                    ),
-                  ),
-                ),
-                DataCell(
-                  Text(
-                    '1232323.00',
-                    style: const TextStyle(
-                      fontWeight: FontWeight.w600,
-                      color: Colors.black,
-                      fontSize: 10,
-                    ),
-                  ),
-                ),
-                DataCell(
-                  Text(
-                    '1232323.00',
-                    style: const TextStyle(
-                      fontWeight: FontWeight.w600,
-                      color: Colors.black,
-                      fontSize: 10,
-                    ),
-                  ),
-                ),
-                DataCell(
-                  Text(
-                    '1232323.00',
-                    style: const TextStyle(
-                      fontWeight: FontWeight.w600,
-                      color: Colors.black,
-                      fontSize: 10,
-                    ),
-                  ),
-                ),
-              ]),
-              DataRow(cells: [
-                DataCell(
-                  Text(
-                    '1232323.00',
-                    style: const TextStyle(
-                      fontWeight: FontWeight.w600,
-                      color: Colors.black,
-                      fontSize: 10,
-                    ),
-                  ),
-                ),
-                DataCell(
-                  Text(
-                    '1232323.00',
-                    style: const TextStyle(
-                      fontWeight: FontWeight.w600,
-                      color: Colors.black,
-                      fontSize: 10,
-                    ),
-                  ),
-                ),
-                DataCell(
-                  Text(
-                    '1232323.00',
-                    style: const TextStyle(
-                      fontWeight: FontWeight.w600,
-                      color: Colors.black,
-                      fontSize: 10,
-                    ),
-                  ),
-                ),
-                DataCell(
-                  Text(
-                    '1232323.00',
-                    style: const TextStyle(
-                      fontWeight: FontWeight.w600,
-                      color: Colors.black,
-                      fontSize: 10,
-                    ),
-                  ),
-                ),
-              ]),
-              DataRow(cells: [
-                DataCell(
-                  Text(
-                    '1232323.00',
-                    style: const TextStyle(
-                      fontWeight: FontWeight.w600,
-                      color: Colors.black,
-                      fontSize: 10,
-                    ),
-                  ),
-                ),
-                DataCell(
-                  Text(
-                    '1232323.00',
-                    style: const TextStyle(
-                      fontWeight: FontWeight.w600,
-                      color: Colors.black,
-                      fontSize: 10,
-                    ),
-                  ),
-                ),
-                DataCell(
-                  Text(
-                    '1232323.00',
-                    style: const TextStyle(
-                      fontWeight: FontWeight.w600,
-                      color: Colors.black,
-                      fontSize: 10,
-                    ),
-                  ),
-                ),
-                DataCell(
-                  Text(
-                    '1232323.00',
-                    style: const TextStyle(
-                      fontWeight: FontWeight.w600,
-                      color: Colors.black,
-                      fontSize: 10,
-                    ),
-                  ),
-                ),
-              ]),
-            ],
-          )),
+                columnSpacing: 40,
+                columns: ['BID PRICE', 'QTY', 'QTY', 'ASK PRICE']
+                    .map(
+                      (title) => orderBookTitle(
+                        title,
+                      ),
+                    )
+                    .toList(),
+                rows: orderBook
+                    .map((e) => DataRow(
+                        cells: e
+                            .map(
+                              (e) => rowData(
+                                e,
+                              ),
+                            )
+                            .toList()))
+                    .toList(),
+              )),
         ],
       ),
     );
   }
 }
+
+DataCell rowData(String data) => DataCell(
+      Text(
+        data,
+        style: const TextStyle(
+          fontWeight: FontWeight.w600,
+          color: Colors.black,
+          fontSize: 10,
+        ),
+      ),
+    );
 
 DataColumn orderBookTitle(String title) => DataColumn(
       label: Text(
