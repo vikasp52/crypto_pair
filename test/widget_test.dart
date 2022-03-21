@@ -49,10 +49,16 @@ void main() {
   void getCurrencyAndOrderBookData() {
     when(() =>
             mockCurrencyPairRepository.getCurrencyPair(currencyName: 'btcusd'))
-        .thenAnswer((_) async => cryptoPair);
+        .thenAnswer((_) async {
+      Future.delayed(const Duration(seconds: 2), () {});
+      return cryptoPair;
+    });
 
     when(() => mockOrderBookRepository.getOrderBookData(currencyName: 'btcusd'))
-        .thenAnswer((_) async => orderBook);
+        .thenAnswer((_) async {
+      Future.delayed(const Duration(seconds: 2), () {});
+      return orderBook;
+    });
   }
 
   Widget createTestWidget() {
@@ -75,11 +81,26 @@ void main() {
     await tester.pumpWidget(createTestWidget());
     expect(find.byType(TextFormField), findsOneWidget);
     expect(find.text('Enter currency pair'), findsOneWidget);
+    expect(find.byType(IconButton), findsOneWidget);
+  });
+
+  testWidgets('search icon and text should be displayed',
+      (WidgetTester tester) async {
+    await tester.pumpWidget(createTestWidget());
+    expect(find.byType(Icon), findsNWidgets(2));
+    expect(find.text('Enter a currency pair to load the data'), findsOneWidget);
   });
 
   testWidgets(
       'loading indicators should be displayed while loading crypto data',
       (WidgetTester tester) async {
+    getCurrencyAndOrderBookData();
     await tester.pumpWidget(createTestWidget());
+    tester.widget(find.byType(TextFormField));
+    await tester.enterText(find.byType(TextFormField), "btcusd");
+    await tester.tap(find.byType(IconButton));
+    await tester.pump(const Duration(milliseconds: 500));
+    expect(find.byType(CircularProgressIndicator), findsOneWidget);
+    await tester.pumpAndSettle();
   });
 }
