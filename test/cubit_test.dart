@@ -3,8 +3,8 @@ import 'package:crypto_pair/repository/currency_pair_repository/currency_pair_re
 import 'package:crypto_pair/repository/currency_pair_repository/model/currency_pair_model.dart';
 import 'package:crypto_pair/repository/order_book_repository/model/order_book_model.dart';
 import 'package:crypto_pair/repository/order_book_repository/order_book_repository.dart';
-import 'package:crypto_pair/screens/search/cubit/crypto_cubit.dart';
-import 'package:crypto_pair/screens/search/cubit/crypto_state.dart';
+import 'package:crypto_pair/screens/home/cubit/crypto_cubit.dart';
+import 'package:crypto_pair/screens/home/cubit/crypto_state.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
@@ -61,7 +61,7 @@ main() {
   );
 
   blocTest(
-    'Should emit [LoadingState, LoadedState] on search',
+    'Should emit [LoadingState, LoadedState] on home',
     build: () => cryptoCubit,
     act: (CryptoCubit cubit) {
       when(() => mockCurrencyPairRepository.getCurrencyPair(
@@ -80,7 +80,7 @@ main() {
   );
 
   blocTest(
-    'Should emit [LoadingState, CurrencyErrorState] on search when '
+    'Should emit [LoadingState, CurrencyErrorState] on home when '
     'there is only top 4 bids in list',
     build: () => cryptoCubit,
     act: (CryptoCubit cubit) {
@@ -111,7 +111,7 @@ main() {
   );
 
   blocTest(
-    'Should emit [LoadingState, CurrencyNotExistState] on search when '
+    'Should emit [LoadingState, CurrencyNotExistState] on home when '
     'currency is not there in given list',
     build: () => cryptoCubit,
     act: (CryptoCubit cubit) => cubit.getCurrencyData(currencyName: 'btcus'),

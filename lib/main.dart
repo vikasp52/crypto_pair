@@ -1,7 +1,7 @@
 import 'package:crypto_pair/repository/currency_pair_repository/currency_pair_repository.dart';
 import 'package:crypto_pair/repository/order_book_repository/order_book_repository.dart';
-import 'package:crypto_pair/screens/search/cubit/crypto_cubit.dart';
-import 'package:crypto_pair/screens/search/seatch_crypto.dart';
+import 'package:crypto_pair/screens/home/cubit/crypto_cubit.dart';
+import 'package:crypto_pair/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

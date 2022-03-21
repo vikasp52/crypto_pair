@@ -1,3 +1,4 @@
+import 'package:crypto_pair/utils/text_style.dart';
 import 'package:flutter/material.dart';
 
 class SearchState extends StatelessWidget {
@@ -19,11 +20,7 @@ class SearchState extends StatelessWidget {
           ),
           Text(
             'Enter a currency pair to load the data',
-            style: TextStyle(
-              color: Colors.grey.shade700,
-              fontWeight: FontWeight.w500,
-              fontSize: 16,
-            ),
+            style: TextStyles.messageTextStyle,
           )
         ],
       ),

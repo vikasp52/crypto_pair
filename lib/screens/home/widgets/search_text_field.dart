@@ -1,4 +1,5 @@
-import 'package:crypto_pair/screens/search/cubit/crypto_cubit.dart';
+import 'package:crypto_pair/screens/home/cubit/crypto_cubit.dart';
+import 'package:crypto_pair/utils/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -25,6 +26,16 @@ class _SearchTextFieldState extends State<SearchTextField> {
     super.dispose();
   }
 
+  void submit(CryptoCubit cryptoCubit) {
+    if (_textEditingController.text.trim().isNotEmpty) {
+      FocusScope.of(context).unfocus();
+
+      cryptoCubit.getCurrencyData(
+        currencyName: _textEditingController.text,
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final cryptoCubit = context.read<CryptoCubit>();
@@ -37,9 +48,7 @@ class _SearchTextFieldState extends State<SearchTextField> {
       ),
       child: TextFormField(
         controller: _textEditingController,
-        onFieldSubmitted: (_) => cryptoCubit.getCurrencyData(
-          currencyName: _textEditingController.text,
-        ),
+        onFieldSubmitted: (_) => submit(cryptoCubit),
         inputFormatters: [
           FilteringTextInputFormatter.allow(
             RegExp("[a-zA-Z]"),
@@ -47,16 +56,13 @@ class _SearchTextFieldState extends State<SearchTextField> {
         ],
         decoration: InputDecoration(
           hintText: 'Enter currency pair',
-          hintStyle: const TextStyle(
-            color: Color(0xffa19d9d),
-            fontWeight: FontWeight.w500,
-          ),
+          hintStyle: TextStyles.hintTextStyle,
           fillColor: Colors.blue,
           border: InputBorder.none,
           suffixIcon: IconButton(
-            onPressed: () => cryptoCubit.getCurrencyData(
-              currencyName: _textEditingController.text,
-            ),
+            splashColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+            onPressed: () => submit(cryptoCubit),
             icon: const Icon(
               Icons.search_outlined,
             ),

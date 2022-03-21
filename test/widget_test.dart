@@ -2,8 +2,8 @@ import 'package:crypto_pair/repository/currency_pair_repository/currency_pair_re
 import 'package:crypto_pair/repository/currency_pair_repository/model/currency_pair_model.dart';
 import 'package:crypto_pair/repository/order_book_repository/model/order_book_model.dart';
 import 'package:crypto_pair/repository/order_book_repository/order_book_repository.dart';
-import 'package:crypto_pair/screens/search/cubit/crypto_cubit.dart';
-import 'package:crypto_pair/screens/search/seatch_crypto.dart';
+import 'package:crypto_pair/screens/home/cubit/crypto_cubit.dart';
+import 'package:crypto_pair/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -75,8 +75,7 @@ void main() {
     );
   }
 
-  testWidgets('search text box should be displayed',
-      (WidgetTester tester) async {
+  testWidgets('home text box should be displayed', (WidgetTester tester) async {
     //getCurrencyAndOrderBookData();
     await tester.pumpWidget(createTestWidget());
     expect(find.byType(TextFormField), findsOneWidget);
@@ -84,7 +83,7 @@ void main() {
     expect(find.byType(IconButton), findsOneWidget);
   });
 
-  testWidgets('search icon and text should be displayed',
+  testWidgets('home icon and text should be displayed',
       (WidgetTester tester) async {
     await tester.pumpWidget(createTestWidget());
     expect(find.byType(Icon), findsNWidgets(2));

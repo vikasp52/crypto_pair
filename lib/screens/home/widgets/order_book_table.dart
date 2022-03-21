@@ -1,7 +1,8 @@
+import 'package:crypto_pair/utils/text_style.dart';
 import 'package:flutter/material.dart';
 
-class OrderBookWidget extends StatelessWidget {
-  const OrderBookWidget({
+class OrderBookTable extends StatelessWidget {
+  const OrderBookTable({
     Key? key,
     required this.orderBook,
   }) : super(key: key);
@@ -20,8 +21,8 @@ class OrderBookWidget extends StatelessWidget {
               bottom: 20,
               left: 10,
             ),
-            child: Text('ORDER BOOK',
-                style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
+            child:
+                Text('ORDER BOOK', style: TextStyles.orderBookTitleTextStyle),
           ),
           Card(
               elevation: 10,
@@ -54,21 +55,13 @@ class OrderBookWidget extends StatelessWidget {
 DataCell rowData(String data) => DataCell(
       Text(
         data,
-        style: const TextStyle(
-          fontWeight: FontWeight.w600,
-          color: Colors.black,
-          fontSize: 10,
-        ),
+        style: TextStyles.rowDataTextStyle,
       ),
     );
 
 DataColumn orderBookTitle(String title) => DataColumn(
       label: Text(
         title,
-        style: const TextStyle(
-          fontWeight: FontWeight.w600,
-          color: Colors.black,
-          fontSize: 10,
-        ),
+        style: TextStyles.columnTitleTextStyle,
       ),
     );

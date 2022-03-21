@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:crypto_pair/repository/currency_pair_repository/currency_pair_repository.dart';
 import 'package:crypto_pair/repository/order_book_repository/order_book_repository.dart';
-import 'package:crypto_pair/screens/search/cubit/crypto_state.dart';
+import 'package:crypto_pair/screens/home/cubit/crypto_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 

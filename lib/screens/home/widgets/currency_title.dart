@@ -1,3 +1,4 @@
+import 'package:crypto_pair/utils/text_style.dart';
 import 'package:flutter/material.dart';
 
 class CurrencyTitle extends StatelessWidget {
@@ -17,19 +18,11 @@ class CurrencyTitle extends StatelessWidget {
       children: [
         Text(
           title,
-          style: const TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
-            fontSize: 30,
-          ),
+          style: TextStyles.currencyNameTextStyle,
         ),
         Text(
           date,
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Colors.grey.shade700,
-            fontSize: 14,
-          ),
+          style: TextStyles.currencyDateTextStyle,
         ),
       ],
     );
