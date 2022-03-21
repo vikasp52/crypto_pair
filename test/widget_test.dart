@@ -18,13 +18,13 @@ void main() {
   late MockCurrencyPairRepository mockCurrencyPairRepository;
   late MockOrderBookRepository mockOrderBookRepository;
 
-  var cryptoPair = CurrencyPair(
+  var cryptoPair = const CurrencyPair(
     high: '38305.24',
     low: '38305.24',
     open: '38305.24',
     last: '38305.24',
     volume: '38305.24',
-    timestamp: DateTime.now(),
+    timestamp: '1647689649',
   );
 
   var orderBook = const OrderBook(bids: [

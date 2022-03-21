@@ -41,7 +41,8 @@ class SearchCryptoScreen extends StatelessWidget {
                       (state is InitialState)
                           ? const SearchState()
                           : (state is LoadingState)
-                              ? const Center(
+                              ? const Align(
+                                  alignment: Alignment.center,
                                   child: CircularProgressIndicator(),
                                 )
                               : (state is LoadedState)
@@ -67,11 +68,33 @@ class SearchCryptoScreen extends StatelessWidget {
                   StreamBuilder<bool>(
                       stream: cubit.controller.stream,
                       builder: (context, snapshot) {
-                        return (snapshot.data ?? false)
-                            ? OrderBookWidget(
-                                orderBook: state.orderBook,
-                              )
-                            : const SizedBox.shrink();
+                        return Column(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                right: 20,
+                              ),
+                              child: Align(
+                                alignment: Alignment.centerRight,
+                                child: InkWell(
+                                  onTap: cubit.showHideOrderBook,
+                                  child: Text(
+                                    '${(snapshot.data ?? false) ? 'HIDE' : 'VIEW'} ORDER BOOK',
+                                    style: const TextStyle(
+                                      color: Colors.deepPurpleAccent,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            (snapshot.data ?? false)
+                                ? OrderBookWidget(
+                                    orderBook: state.orderBook,
+                                  )
+                                : const SizedBox.shrink(),
+                          ],
+                        );
                       }),
               ],
             );

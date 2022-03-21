@@ -1,6 +1,5 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'currency_pair_model.dart';
@@ -23,7 +22,7 @@ class _$CurrencyPairTearOff {
   const _$CurrencyPairTearOff();
 
   _CurrencyPair call(
-      {required DateTime timestamp,
+      {required String timestamp,
       required String open,
       required String high,
       required String low,
@@ -49,7 +48,7 @@ const $CurrencyPair = _$CurrencyPairTearOff();
 
 /// @nodoc
 mixin _$CurrencyPair {
-  DateTime get timestamp => throw _privateConstructorUsedError;
+  String get timestamp => throw _privateConstructorUsedError;
   String get open => throw _privateConstructorUsedError;
   String get high => throw _privateConstructorUsedError;
   String get low => throw _privateConstructorUsedError;
@@ -68,7 +67,7 @@ abstract class $CurrencyPairCopyWith<$Res> {
           CurrencyPair value, $Res Function(CurrencyPair) then) =
       _$CurrencyPairCopyWithImpl<$Res>;
   $Res call(
-      {DateTime timestamp,
+      {String timestamp,
       String open,
       String high,
       String low,
@@ -97,7 +96,7 @@ class _$CurrencyPairCopyWithImpl<$Res> implements $CurrencyPairCopyWith<$Res> {
       timestamp: timestamp == freezed
           ? _value.timestamp
           : timestamp // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as String,
       open: open == freezed
           ? _value.open
           : open // ignore: cast_nullable_to_non_nullable
@@ -130,7 +129,7 @@ abstract class _$CurrencyPairCopyWith<$Res>
       __$CurrencyPairCopyWithImpl<$Res>;
   @override
   $Res call(
-      {DateTime timestamp,
+      {String timestamp,
       String open,
       String high,
       String low,
@@ -161,7 +160,7 @@ class __$CurrencyPairCopyWithImpl<$Res> extends _$CurrencyPairCopyWithImpl<$Res>
       timestamp: timestamp == freezed
           ? _value.timestamp
           : timestamp // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as String,
       open: open == freezed
           ? _value.open
           : open // ignore: cast_nullable_to_non_nullable
@@ -201,7 +200,7 @@ class _$_CurrencyPair implements _CurrencyPair {
       _$$_CurrencyPairFromJson(json);
 
   @override
-  final DateTime timestamp;
+  final String timestamp;
   @override
   final String open;
   @override
@@ -254,7 +253,7 @@ class _$_CurrencyPair implements _CurrencyPair {
 
 abstract class _CurrencyPair implements CurrencyPair {
   const factory _CurrencyPair(
-      {required DateTime timestamp,
+      {required String timestamp,
       required String open,
       required String high,
       required String low,
@@ -265,7 +264,7 @@ abstract class _CurrencyPair implements CurrencyPair {
       _$_CurrencyPair.fromJson;
 
   @override
-  DateTime get timestamp;
+  String get timestamp;
   @override
   String get open;
   @override

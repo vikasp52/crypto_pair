@@ -1,7 +1,5 @@
 import 'package:crypto_pair/repository/currency_pair_repository/model/currency_pair_model.dart';
-import 'package:crypto_pair/screens/search/cubit/crypto_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'widgets.dart';
 
@@ -17,8 +15,6 @@ class CurrencyData extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cubit = context.read<CryptoCubit>();
-
     return Padding(
       padding: const EdgeInsets.only(
         top: 24,
@@ -28,7 +24,7 @@ class CurrencyData extends StatelessWidget {
         children: [
           CurrencyTitle(
             title: currencyName.toUpperCase(), //'BTCUSD',
-            date: currencyPair.timestamp.toLocal().toString(),
+            date: currencyPair.timestamp.toString(),
           ),
           const SizedBox(
             height: 20,
@@ -55,22 +51,6 @@ class CurrencyData extends StatelessWidget {
             title: 'VOLUME',
             value: currencyPair.volume,
           ),
-          const SizedBox(
-            height: 20,
-          ),
-          Align(
-            alignment: Alignment.centerRight,
-            child: InkWell(
-              onTap: cubit.showHideOrderBook,
-              child: const Text(
-                'VIEW ORDER BOOK',
-                style: TextStyle(
-                  color: Colors.deepPurpleAccent,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-          )
         ],
       ),
     );

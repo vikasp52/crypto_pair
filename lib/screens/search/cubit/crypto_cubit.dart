@@ -4,6 +4,7 @@ import 'package:crypto_pair/repository/currency_pair_repository/currency_pair_re
 import 'package:crypto_pair/repository/order_book_repository/order_book_repository.dart';
 import 'package:crypto_pair/screens/search/cubit/crypto_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 
 class CryptoCubit extends Cubit<CryptoState> {
   CryptoCubit({
@@ -88,10 +89,17 @@ class CryptoCubit extends Cubit<CryptoState> {
 
       final orderBookData = await getOrderBookData(currencyName);
 
+      int timeStamp = int.parse(currencyData.timestamp);
+
+      var date = DateTime.fromMillisecondsSinceEpoch(timeStamp * 1000);
+
+      final DateFormat formatter = DateFormat('dd MMMM yyyy, hh:mm:ss');
+      final String formatted = formatter.format(date);
+
       return emit(
         LoadedState(
           currencyName: currencyName,
-          currencyPair: currencyData,
+          currencyPair: currencyData.copyWith(timestamp: formatted),
           orderBook: orderBookData,
         ),
       );

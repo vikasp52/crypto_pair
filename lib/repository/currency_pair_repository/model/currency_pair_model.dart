@@ -6,7 +6,7 @@ part 'currency_pair_model.g.dart';
 @freezed
 class CurrencyPair with _$CurrencyPair {
   const factory CurrencyPair({
-    required DateTime timestamp,
+    required String timestamp,
     required String open,
     required String high,
     required String low,

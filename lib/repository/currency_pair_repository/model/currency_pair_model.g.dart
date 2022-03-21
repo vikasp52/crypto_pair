@@ -8,7 +8,7 @@ part of 'currency_pair_model.dart';
 
 _$_CurrencyPair _$$_CurrencyPairFromJson(Map<String, dynamic> json) =>
     _$_CurrencyPair(
-      timestamp: DateTime.parse(json['timestamp'] as String),
+      timestamp: json['timestamp'] as String,
       open: json['open'] as String,
       high: json['high'] as String,
       low: json['low'] as String,
@@ -18,7 +18,7 @@ _$_CurrencyPair _$$_CurrencyPairFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$_CurrencyPairToJson(_$_CurrencyPair instance) =>
     <String, dynamic>{
-      'timestamp': instance.timestamp.toIso8601String(),
+      'timestamp': instance.timestamp,
       'open': instance.open,
       'high': instance.high,
       'low': instance.low,
